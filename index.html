@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Mahnoor — With Love, Junaid</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --rose: #c45c6a;
+      --rose-light: #e8a4ab;
+      --rose-dark: #9e3d4a;
+      --cream: #fdf6f0;
+      --gold: #c9a962;
+      --ink: #2d2327;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Floating hearts background */
+    .hearts-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 1.5rem;
+      opacity: 0.12;
+      animation: float 15s ease-in-out infinite;
+    }
+
+    .heart:nth-child(1) { left: 10%; animation-delay: 0s; }
+    .heart:nth-child(2) { left: 25%; animation-delay: 2s; }
+    .heart:nth-child(3) { left: 40%; animation-delay: 4s; }
+    .heart:nth-child(4) { left: 60%; animation-delay: 1s; }
+    .heart:nth-child(5) { left: 75%; animation-delay: 3s; }
+    .heart:nth-child(6) { left: 90%; animation-delay: 5s; }
+    .heart:nth-child(7) { left: 15%; top: 60%; animation-delay: 2.5s; }
+    .heart:nth-child(8) { left: 85%; top: 70%; animation-delay: 1.5s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+      10% { opacity: 0.12; }
+      90% { opacity: 0.08; }
+      100% { transform: translateY(-20vh) rotate(20deg); opacity: 0; }
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      margin-bottom: 3rem;
+      animation: fadeDown 1s ease-out;
+    }
+
+    @keyframes fadeDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 600;
+      color: var(--rose-dark);
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+
+    .header .sub {
+      font-size: 1rem;
+      color: var(--gold);
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    /* Main card */
+    .card {
+      background: linear-gradient(145deg, #fff 0%, #fef8f5 100%);
+      border-radius: 24px;
+      padding: 2.5rem;
+      box-shadow: 
+        0 4px 24px rgba(196, 92, 106, 0.08),
+        0 1px 3px rgba(0,0,0,0.06);
+      border: 1px solid rgba(232, 164, 171, 0.4);
+      animation: fadeUp 1s ease-out 0.2s both;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .card .greeting {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-style: italic;
+      color: var(--rose);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .card .message {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: var(--ink);
+      margin-bottom: 1.25rem;
+    }
+
+    .card .message:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .card .signature {
+      margin-top: 2rem;
+      text-align: right;
+    }
+
+    .card .signature .name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: var(--rose-dark);
+    }
+
+    .card .signature .from {
+      font-size: 0.9rem;
+      color: var(--gold);
+      margin-top: 0.25rem;
+    }
+
+    /* Decorative divider */
+    .divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin: 2.5rem 0;
+      animation: fadeUp 1s ease-out 0.4s both;
+    }
+
+    .divider span {
+      width: 40px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--rose-light), transparent);
+      border-radius: 2px;
+    }
+
+    .divider .heart-icon {
+      color: var(--rose);
+      font-size: 1.25rem;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.15); opacity: 0.85; }
+    }
+
+    /* Footer wish */
+    .footer-wish {
+      text-align: center;
+      animation: fadeUp 1s ease-out 0.5s both;
+    }
+
+    .footer-wish p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      color: var(--rose-dark);
+      font-style: italic;
+    }
+
+    .footer-wish .date {
+      font-size: 0.85rem;
+      color: var(--gold);
+      margin-top: 0.5rem;
+      letter-spacing: 0.1em;
+    }
+  </style>
+</head>
+<body>
+  <div class="hearts-bg" aria-hidden="true">
+    <span class="heart">♥</span>
+    <span class="heart">♥</span>
+    <span class="heart">♥</span>
+    <span class="heart">♥</span>
+    <span class="heart">♥</span>
+    <span class="heart">♥</span>
+    <span class="heart">♥</span>
+    <span class="heart">♥</span>
+  </div>
+
+  <main class="page">
+    <header class="header">
+      <h1>For Mahnoor</h1>
+      <p class="sub">A Valentine Wish</p>
+    </header>
+
+    <article class="card">
+      <p class="greeting">My dearest Mahnoor,</p>
+      <p class="message">
+        From the moment you came into my life, everything has felt a little brighter. Your smile, your kindness, and the way you make every day feel special — that’s the gift I never stop being thankful for.
+      </p>
+      <p class="message">
+        This Valentine’s Day, I just want you to know: you are loved, you are cherished, and you mean the world to me. Here’s to many more moments together, hand in hand.
+      </p>
+      <p class="message">
+        Forever yours,
+      </p>
+      <div class="signature">
+        <div class="name">Junaid Abbas</div>
+        <div class="from">With all my love</div>
+      </div>
+    </article>
+
+    <div class="divider">
+      <span></span>
+      <span class="heart-icon">♥</span>
+      <span></span>
+    </div>
+
+    <footer class="footer-wish">
+      <p>Happy Valentine’s Day, Mahnoor — today and every day.</p>
+      <p class="date">14 February 2026</p>
+    </footer>
+  </main>
+</body>
+</html>
